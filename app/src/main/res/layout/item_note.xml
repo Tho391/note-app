@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/noteLayout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/layout_height"
     android:orientation="vertical"
     app:cardCornerRadius="5dp"
     app:cardElevation="2dp"
-    android:id="@+id/noteLayout"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,7 +43,7 @@
             android:maxLines="1"
             android:text="@string/last_updated"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/content" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/wordCount"
@@ -54,7 +54,19 @@
             android:maxLines="1"
             android:text="@string/word"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/content" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/reminder"
+            style="@style/Details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/reminder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.thomas.core.data.Note
 import com.thomas.mynoteapp.R
+import com.thomas.mynoteapp.utils.convertToDateTime
 import kotlinx.android.synthetic.main.item_note.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,6 +20,7 @@ class NotesListAdapter(private val notes: ArrayList<Note>, private val action: L
         private val noteContent = view.content
         private val noteDate = view.date
         private val wordCount = view.wordCount
+        private val reminder = view.reminder
         fun bind(note: Note) {
             noteTitle.text = note.title
             noteContent.text = note.content
@@ -27,7 +29,9 @@ class NotesListAdapter(private val notes: ArrayList<Note>, private val action: L
             val resultDate = Date(note.updateTime)
             noteDate.text = "Last update ${sdf.format(resultDate)}"
 
-            wordCount.text = "Word: $note.wordCount.toString()"
+            wordCount.text = "Word: ${note.wordCount}"
+
+            reminder.text = "Reminder: ${note.reminder.convertToDateTime()}"
 
             layout.setOnClickListener { action.onClick(note.id) }
         }

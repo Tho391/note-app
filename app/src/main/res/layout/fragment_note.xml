@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/standard_margin"
         android:hint="@string/title"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -50,9 +52,40 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:id="@+id/datePicker"
-        android:layout_height="wrap_content"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/timeView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+        android:hint="@string/time"
+        app:layout_constraintEnd_toStartOf="@id/dateView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contentView"
+        app:startIconContentDescription="@string/calendar"
+        app:startIconDrawable="@drawable/ic_baseline_access_time_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dateView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+        android:hint="@string/date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/timeView"
+        app:layout_constraintTop_toBottomOf="@id/contentView"
+        app:startIconContentDescription="@string/date"
+        app:startIconDrawable="@drawable/ic_baseline_calendar_today_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

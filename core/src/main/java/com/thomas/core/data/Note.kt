@@ -5,7 +5,7 @@ data class Note(
     var content: String,
     var creationTime: Long,
     var updateTime: Long,
+    var reminder: Long,
     var id: Long = 0,
-    var wordCount: Int = 0,
-    var reminder: Long
+    var wordCount: Int = 0
 )

@@ -16,13 +16,23 @@ data class NoteEntity(
     @ColumnInfo(name = "update_date")
     val updateTime: Long,
 
+    val reminder: Long,
+
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L
+
 ) {
     companion object {
         fun fromNote(note: Note) =
-            NoteEntity(note.title, note.content, note.creationTime, note.updateTime, note.id)
+            NoteEntity(
+                note.title,
+                note.content,
+                note.creationTime,
+                note.updateTime,
+                note.reminder,
+                note.id
+            )
     }
 
-    fun toNote() = Note(title, content, creationTime, updateTime, id)
+    fun toNote() = Note(title, content, creationTime, updateTime, reminder, id)
 }
