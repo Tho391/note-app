@@ -1,12 +1,15 @@
 package com.thomas.mynoteapp.utils
 
 fun main() {
-    println(solution(10, 40, 30))
+    val a = listOf(2, 3, 1, 5).toIntArray()
+
+    println(solution(a))
 }
 
-fun solution(X: Int, Y: Int, D: Int): Int {
+fun solution(A: IntArray): Int {
     // write your code in Kotlin
-    val len = Y - X
-
-    return if (len % D == 0) len / D else len / D + 1
+    val map = mutableMapOf<Int, Int>()
+    for (i in A) map[i] = 1
+    for (i in 1..A.size + 1) if (map[i] == null) return i
+    return 0
 }
