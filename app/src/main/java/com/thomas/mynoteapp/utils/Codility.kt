@@ -1,15 +1,21 @@
 package com.thomas.mynoteapp.utils
 
+import java.math.BigInteger
+
 fun main() {
-    val a = listOf(2, 3, 1, 5).toIntArray()
+    val a = listOf(2, 3, 1, 5, 6, 7, 8, 9, 10).toIntArray()
 
     println(solution(a))
 }
 
 fun solution(A: IntArray): Int {
     // write your code in Kotlin
-    val map = mutableMapOf<Int, Int>()
-    for (i in A) map[i] = 1
-    for (i in 1..A.size + 1) if (map[i] == null) return i
-    return 0
+    var sumA: BigInteger = 0.toBigInteger()
+    for (i in A) sumA += i.toBigInteger()
+
+    val n: BigInteger = A.size.toBigInteger().inc()
+    val n1 = n.inc()
+
+    val sum: BigInteger = n * n1 / 2.toBigInteger()
+    return (sum - sumA).toInt()
 }
