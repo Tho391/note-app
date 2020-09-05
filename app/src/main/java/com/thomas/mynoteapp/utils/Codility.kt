@@ -1,7 +1,5 @@
 package com.thomas.mynoteapp.utils
 
-import java.math.BigInteger
-
 fun main() {
     val a = listOf(2, 3, 1, 5, 6, 7, 8, 9, 10).toIntArray()
 
@@ -10,12 +8,12 @@ fun main() {
 
 fun solution(A: IntArray): Int {
     // write your code in Kotlin
-    var sumA: BigInteger = 0.toBigInteger()
-    for (i in A) sumA += i.toBigInteger()
 
-    val n: BigInteger = A.size.toBigInteger().inc()
-    val n1 = n.inc()
-
-    val sum: BigInteger = n * n1 / 2.toBigInteger()
-    return (sum - sumA).toInt()
+    var a = A.size + 1
+    var b = 0
+    for (i in A.indices) {
+        a = a.xor(i + 1)
+        b = b.xor(A[i])
+    }
+    return a.xor(b)
 }
